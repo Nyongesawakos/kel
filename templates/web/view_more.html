@@ -1,0 +1,69 @@
+<div class="report-container">
+    <div class="report-header">
+        <h1 class="recent-Articles">Welfare Members</h1>
+        <button class="view">View All</button>
+        <a class="btn btn--primary" href="{% url 'insert' %}">UPDATE PAY</a>
+    </div>
+
+ 
+        <table id="example" class="table table-striped table-hover" style="width:95%">
+            <thead>
+              <tr class="bg-primary">
+                  <th class="bg-info">Date Updated</th>
+                  <th class="bg-info">UserName</th>
+                  <th class="bg-info">LastName</th>
+                  <th class="bg-info">Email address</th>
+                    <th class="bg-info">code</th>
+                    <th class="bg-info">Month</th>
+                    <th class="bg-info">Amount</th>  
+                    
+                    
+                </tr>
+            </thead>
+            
+        <tbody>
+            {% for update in payment %}  
+            <tr class="table-warning">
+                <td>{{update.created|date}} </td>
+                <td>{{ update.owner}} </td>
+                <td>{{ update.room}}</td>
+                <td>{{ update.owner.email}}</td>
+                <td>{{ update.code }}</td>
+                <td>{{ update.month }}</td>
+                <td>{{ update.amount }}</td>
+                
+                
+            </tr>
+           
+            </tbody>
+       
+            {% endfor %}
+            <style>
+                table card-body{
+                  font-family: arial, sans-serif;
+                  font-size: medium;
+                  font:300;
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+                
+                td, th {
+                  border: 1px solid #C0C0C0;
+                  text-align: left;
+                  padding: 8px;
+                  background-color: #d3d8e0;
+                }
+                
+                tr:nth-child(even) {
+                  background-color: #C0C0C0;
+                }
+               </style>
+               </table>
+
+           
+</div>
+</div>
+</div>
+
+<script src="{% static 'style/index.js' %}"></script>
+</body>

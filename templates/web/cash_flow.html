@@ -1,0 +1,115 @@
+{% extends 'main.html' %}
+{%load static%}
+{% block content %}
+
+    <form class="styled-form" method="POST" action="">
+      <h2>  UPDATE OUTFLOWS</h2>
+        {%csrf_token %}
+ {{form}}
+        
+<input type="submit" value="submit"/>   
+       
+    </form>
+    <style>
+      .styled-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #dfdddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.styled-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.styled-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+.styled-form input,
+.styled-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.styled-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.styled-form button:hover {
+  background-color: #0056b3;
+}
+
+    </style>
+   
+                        <style>
+                            table card-body{
+                              font-family: arial, sans-serif;
+                              font-size: medium;
+                              font:300;
+                              border-collapse: collapse;
+                              width: 100%;
+                            }
+                            
+                            td, th {
+                              border: 1px solid #C0C0C0;
+                              text-align: left;
+                              padding: 8px;
+                              background-color: #d3d8e0;
+                            }
+                            
+                            tr:nth-child(even) {
+                              background-color: #C0C0C0;
+                            }
+                            label{
+                              font-size: medium;
+                            }
+                            a{
+                              font-size: medium;
+                              text-decoration: none;
+                            }
+                           </style>
+                           </table>
+
+                       
+            </div>
+        </div>
+   
+
+    <script src="{% static 'style/index.js' %}"></script>
+    
+</body>
+</html>
+
+{% endblock %}
+

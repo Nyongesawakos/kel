@@ -1,0 +1,98 @@
+{% extends 'main.html '%}
+
+{% block content %}
+<main class="create-room layout">
+    <div class="container" style="background-color: brown;">
+      <div class="layout__box" style="background-color: #fff;">
+        <div class="layout__boxHeader">
+          <div class="layout__boxTitle">
+            
+            <a href="{% url 'user_list' %}">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                <title>arrow-left</title>
+                <path
+                  d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                </path>
+              </svg>
+            </a>
+            <h3>Please Update Member Payments</h3>
+            
+            <br> <br>  <br> <br>   
+          </div>
+        </div>
+        <div><small>This page Can only Be seen by Administrators</small></div>
+        
+<div class="layout__body" style="padding-top: 300px;">
+  <br><br>
+<h3>Update Payments</h3>
+<br><br>
+<form method="post" action="" style="border: #000;">
+  {%csrf_token %}
+  <div class="form__group">
+    <form method="post" action="">
+    <label for="room_topic">Select Member's username</label>
+        {{form.owner}} 
+  </div>
+  <div class="form__group">
+    <label for="room_topic">payrol number</label>
+    {{form.room}} 
+        
+      </div>
+        <div class="form__group">
+    <label for="room_topic">month</label>
+    {{form.choice}} 
+        
+      </div>
+      <div class="form__group">
+        <label for="room_topic" >instalment</label>
+     {{form.instalment}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >Welfare deduction</label>
+     {{form.welfare_ded}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >Chrismas Kitty</label>
+     {{form.kitty}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >Balance brought foward</label>
+     {{form.bbf}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >Current loan</label>
+     {{form.current_loan}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >Total loans</label>
+     {{form.total_loan}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >interest</label>
+     {{form.interest}}
+  </div>
+     <div class="form__group">
+        <label for="room_topic" >Deductable</label>
+     {{form.deductable}}
+  </div>
+  <div class="form__group">
+    <label for="room_topic">Total deductions</label>
+   
+        {{form.total_deductions}}
+  </div>
+
+  
+  <div class="form__action">
+    <a class="btn btn--primary" href="{% url 'home' %}">Cancel</a>
+    <button class="btn btn--main" input type="submit" value="submit">Update Now</button>
+    
+  </div>
+</form>
+</div>
+<style>
+   label{
+      color: #000;
+   }
+ 
+</style>
+{% endblock%}

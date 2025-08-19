@@ -1,0 +1,100 @@
+
+{%load static%}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GCIWELFARE</title>
+<div class="div" id="mn">
+<div class="image">
+    <img src="{% static 'images/logo.png'%}" />
+    </div>
+
+    <div class="report-container">
+        <div class="report-header">
+            <h1 class="recent-Articles">{{detail.host}}</h1> 
+           
+        </div>
+
+    <table id="example" class="table table-bordered table-hover" style="width:95%">
+      <thead>
+        <col class="bg-primary">
+             
+              <th class="bg-info">Username</th>
+              <th class="bg-info">Id Number</th>
+              <th class="bg-info">phone number</th>
+              <th class="bg-info">Category</th>
+              <th class="bg-info">HBC</th>
+              <th class="bg-info">Dependants</th>
+              
+      </col>
+      </thead>
+      <tbody>
+        
+<col class="table-warning">
+    <td>{{detail.host}} {{detail.name}}</td>
+    <td>{{detail.identity}}</td>
+    <td>{{detail.phone}}</td>
+    <td>{{detail.topic}}</td>
+    <td>{{detail.choice}}</td> 
+    <td><b>Parent: </b>({{detail.Parent}}) <br><b>Child: </b>({{detail.Child}})<br> <b>Spouse: </b>({{detail.Spouse}})</td> 
+     
+    
+    
+      </col>
+</tbody>
+</table>
+<br><br>
+<div class="card">
+    <div class="card-body">
+
+
+
+
+<tfoot>
+           
+</tfoot>
+</table>
+
+</div>
+</div>
+    </div>
+<p></p>
+
+<head>
+<style>
+table card-body{
+  font-family: arial, sans-serif;
+  font-size: medium;
+  font:300;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #051634;
+  text-align: left;
+  color: #1e1e1f;
+  padding: 8px;
+  background-color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #C0C0C0;
+}
+img{
+                        align-items: center;
+                        width: 100;
+                      
+                    }
+</style>
+</head>
+</div>
+<button onclick="myfunc('mn')" class="btn btn--main">Download pdf</button>
+<script type="text/javascript">
+    function myfunc(pa){
+        var b=document.body.innerHTML;
+        var d=document.getElementById(pa).innerHTML;
+        document.body.innerHTML=d;
+        window.print();
+    }
+</script>
+{%endblock%}

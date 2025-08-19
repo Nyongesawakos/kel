@@ -1,0 +1,94 @@
+{% extends 'main.html '%}
+
+        <!-- Not Logged In -->
+        <!-- <a href="/login.html">
+            <img src="./assets/avatar.svg" />
+            <p>Account</p>
+          </a> -->
+
+        <!-- Logged In -->
+        {% block content %}
+        <br><br>
+        <main class="create-room layout">
+          <div class="container">
+            <div class="layout__box" style="background-color: #fff;">
+              <div class="layout__boxHeader">
+                <div class="layout__boxTitle">
+                  
+                  <a href="index.html">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                      <title>arrow-left</title>
+                      <path
+                        d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                      </path>
+                    </svg>
+                  </a>
+                  <h3>Please Update Member Payments</h3>
+                  
+            
+            <br><br>  <br> <br>   
+          </div>
+        </div>
+        <br> <br> <br>
+        <div class="layout__body">
+          <br><br><br><br><br>
+          <h3>Please Complete This Form and apply loan</h3>
+          <form method="post" action="">
+            {%csrf_token %}
+            <div class="form__group">
+              <form method="post" action="">
+                {% if form.non_field_errors %}  
+                <div class="error">{{ form.non_field_errors }}</div>  
+            {% endif %} 
+              <label for="room_topic">Select Department</label>
+                  {{form.topic}}
+            </div>
+             <div class="form__group">
+              <label for="room_topic">Loan Requested</label>
+              
+                  {{form.cash_expenditure}}
+            </div>
+            <div class="form__group">
+              <label for="room_topic">FirstName</label>
+              
+                  {{form.Firstname}}
+            </div>
+            <div class="form__group">
+              <label for="room_topic">Last Name</label>
+              
+                  {{form.name}}
+            </div>
+          
+            <div class="form__group">
+              <label for="room_topic">Middle Name</label>
+             
+                  {{form.lastName}}
+            </div>
+            <div class="form__group">
+              <label for="room_topic">payrol</label> 
+                  {{form.identity}}
+               
+            </div>
+            <div class="form__group">
+              <label for="room_topic">Phone Number</label>
+                  {{form.phone}}
+            </div>
+              <div class="form__group">
+              <label for="room_topic">Amount Approved</label>
+                  {{form.amount}}
+            </div>
+           
+         
+       
+            <div class="form__action">
+              <a class="btn btn--primary" href="{% url 'home' %}">Cancel</a>
+              <button class="btn btn--main " input type="submit" value="submit" style="color: white;">Update Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+  </main>
+
+
+{% endblock content%}

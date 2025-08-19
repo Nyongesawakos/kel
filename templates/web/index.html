@@ -1,0 +1,199 @@
+{% extends 'main.html' %}
+{%load static%}
+{% block content %}
+ <div>
+
+    <p><b>{{index.host}} {{index.name}}</b></p>
+<br>
+</div>
+</div>
+      <table class="table table-borderless">
+        <thead>
+         
+         
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><b><h4>Department<b><h4></th>
+            <td><h4>{{index.choice}}<h4></td>
+            
+          </tr>
+          <tr>
+            <th scope="row"><b><h4>PHONE NUMBER<b><h4></th>
+            <td><h4>{{index.phone}}<h4></td>
+          </tr>
+          <tr>
+            <th scope="row"><b><h4>Payrol Number<b><h4></th>
+            <td colspan="2"><h4>{{index.identity}}<h4></td>
+          </tr>
+          <tr>
+            <th scope="row"><b><h4>ID Number<b><h4></th>
+            <td><h4>{{index.Parent}}</h4></td>
+            
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <p><b>Loan status</b></p>
+<br> 
+
+
+    
+    <div class="div" id="mn">
+       <div class="card">
+        <div class="card-body">
+        <table id="example" class="table table-bordered table-hover" style="width:95%">
+          <thead>
+            
+            <tr class="bg-primary">
+                 
+                  <th class="bg-info">Date</th>
+                  <th class="bg-info">instalment</th>
+                  <th class="bg-info">welfare_ded</th>
+                  <th class="bg-info">kitty</th>
+                  <th class="bg-info">bbf</th>
+                  <th class="bg-info">current_loan</th>
+                  <th class="bg-info">total_loan</th>
+                  <th class="bg-info">interest</th>
+                  <th class="bg-info">deductable</th>
+                  <th class="bg-info"> Total_deductions</th>
+                  <th class="bg-info">Month</th>
+              </tr>
+          </thead>
+          <tbody>
+           
+            {%for update in payment%}
+            {% if request.user == update.owner|slice:':12'%}
+              <tr class="table-warning">
+                  <td>{{update.updated| date}}</td>
+                  <td>{{update.instalment}}</td>
+                  <td>{{update.welfare_ded}}</td>
+                  <td>{{update.kitty}}</td> 
+                  <td>{{update.bbf}}</td> 
+                  <td>{{update.current_loan}}</td> 
+                  <td>{{update.total_loan}}</td> 
+                  <td>{{update.interest}}</td> 
+                  <td>{{update.deductable}}</td> 
+                   <td>{{update.Total_deductions}}</td> 
+                    <td>{{update.choice}}</td> 
+                   
+               
+                  
+              </tr>
+              {%endif%}
+              {%endfor%}
+           
+          </tfoot>
+      </table>
+    
+      </div>
+    </div>
+    </div>
+  
+    
+  </div>
+    </div>
+    </div>
+  <h1>Welfare details</h1>
+   <div class="div" id="mn">
+       <div class="card">
+        <div class="card-body">
+        <table id="example" class="table table-bordered table-hover" style="width:95%">
+          <thead>
+            
+            <tr class="bg-primary">
+                 
+                  <th class="bg-info">Date</th>
+                  <th class="bg-info">Code</th>
+                  <th class="bg-info">Month</th>
+                  <th class="bg-info">contribution</th>
+                  <th class="bg-info">contribution</th>
+                  <th class="bg-info">contribution</th>
+                  <th class="bg-info">contribution</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+           
+            {%for update in payment%}
+            {% if request.user == update.owner|slice:':12'%}
+              <tr class="table-warning">
+                  <td>{{update.updated| date}}</td>
+                  <td>{{update.code}}</td>
+                  <td>{{update.choice}}</td>
+                  <td>{{update.amount}}</td> 
+                  <td>{{update.amount}}</td> 
+                  <td>{{update.amount}}</td> 
+                  <td>{{update.amount}}</td> 
+                   
+               
+                  
+              </tr>
+              {%endif%}
+              {%endfor%}
+           
+          </tfoot>
+      </table>
+    
+      </div>
+    </div>
+    </div>
+  
+    
+      <style>
+
+
+
+          table card-body{
+            font-family: arial, sans-serif;
+            font-size: medium;
+            font:300;
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          td, th {
+            border: 1px solid #000;
+            text-align: left;
+            color: #1e1e1f;
+            padding: 8px;
+            background-color:  #fff;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #D6EEEE;
+          }
+          p{
+            font-size: medium;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #051634;
+            padding: 1%;
+          }
+
+          
+          </style>
+          
+     
+
+    <!--button onclick="myfunc('mn')"  class="btn btn--main">Download pdf</button--> 
+        <script type="text/javascript">
+        function myfunc(pa){
+            var b=document.body.innerHTML;
+            var d=document.getElementById(pa).innerHTML;
+            document.body.innerHTML=d;
+            window.print();
+        }
+        
+    </script>  
+
+
+      <br>
+
+        
+      
+       
+
+    
+                
+          {%endblock%}

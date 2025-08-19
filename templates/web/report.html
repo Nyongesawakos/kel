@@ -1,0 +1,47 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<tbody>
+    {% for update in payment %}
+    <tr class="table-warning">
+    
+        
+        <td>{{update.owner}}</td>
+        
+       
+        
+        <td> <a href="{% url 'single' update.id %}">{{update.owner}}</a></td>
+       
+        
+    </tr>
+
+</tbody>
+
+
+{% endfor %}
+
+<style>
+    table card-body{
+      font-family: arial, sans-serif;
+      font-size: medium;
+      font:300;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #C0C0C0;
+      text-align: left;
+      padding: 8px;
+      background-color: #d3d8e0;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #C0C0C0;
+    }
+    img{
+                    align-items: center;
+                    width: 100;
+                  
+                }
+   </style>
+   </table>
+   {%endblock%}

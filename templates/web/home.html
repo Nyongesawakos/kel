@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% extends 'main.html' %}
+{%load static%}
+
+   {% block content %}
+    <main class="layout layout--3">
+      <div class="container">
+        <!-- Topics Start -->
+      
+         
+        </div>
+        <!-- Topics End -->
+
+        <!-- Room List Start -->
+        <div class="roomList">
+          <div class="mobile-menu">
+            <form class="header__search"  method="get" action="{% url 'home' %}">
+              <label>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                  <title>search</title>
+                  <path
+                    d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z"
+                  ></path>
+                </svg>
+                <input type="text" name="q" placeholder="Search Here"/>
+              </label>
+            </form>
+            <div class="mobile-menuItems">
+              <a class="btn btn--main btn--pill" href="{% url 'gci' %}">Departments</a>
+             
+              <a class="btn btn--main btn--pill" href="{% url 'Message'%}">Information</a>
+            
+             
+              
+             
+            </div>
+          </div>
+          <div class="roomList__header">
+            <div>
+              <h2 style="color: blue; margin-left: 20px;" >KEL WELFARE</h2>
+                <p style="color: red; margin-left: 20px;">{{room_count}} Welfare Members</p>
+             
+            
+            </div>
+            {% if user.is_superuser %} 
+            <a class="btn btn--primary" href="{% url 'insert' %}">Update</a>
+            <a class="btn btn--primary" href="{% url 'user_list' %}">Admin</a>
+            {%endif%}
+   
+          <!--  {% if request.user.is_authenticated %}
+            <a class="btn btn--main" href="{% url 'createRoom' %}">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                <title>add</title>
+                <path
+                  d="M16.943 0.943h-1.885v14.115h-14.115v1.885h14.115v14.115h1.885v-14.115h14.115v-1.885h-14.115v-14.115z"
+                ></path>
+              </svg>
+              Create Profile
+            </a>
+            {%endif%}-->
+          
+             {% for room in tips %}
+          </div>
+          <div class="roomListRoom" style=" padding:50; max-width: 500px; width: 90%;  
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); margin: 0 auto; margin-bottom: 8px; background-color: white;">
+            <div class="roomListRoom__header">
+              <a href="" class="roomListRoom__author">
+                <div class="avatar avatar--small">
+                  <img src="{% static 'images/avatar.svg'%}" />
+                </div>
+                <span>{{room.host.username}}</span>
+              </a>
+              
+             <!--<a class="btn btn--main" href="{% url 'deleteRoom'  room.id %}">Delete</a>-->
+             
+             <br>
+             {% if request.user == room.host %}
+             <a class="btn btn--main" href="{% url 'cashflow'%}" style="color: white; padding-right: 8px;">Apply</a>
+              {%endif%}
+              <div class="roomListRoom__actions">
+                <span></span>
+              </div>
+            </div>
+            {% if user.is_superuser %} 
+            <div class="roomListRoom__content">
+              {% if request.user == room.host %}
+              <a href="{% url 'index' room.id %}"> <small>Loan profile</small></a><br>
+                  {% else %}
+                 <p style="color: red;">You are not allowed on profile.</p>
+                 {% endif %}
+              
+              
+              <small style="color: blue;"><br>Department is</small>
+              <p style="color: black;">
+               {{room.topic.name}}<br>
+               
+               <small><a  href="{% url 'updateRoom'  room.id %}" style="color: blue;">Approve/update</a></small>
+               
+              </p>
+              {% if request.user == room.host %}
+              <small style="color: blue; " >Loan requested: {{room.cash_expenditure}}</small> <small style="color: blue; margin-left: 50px;">Loan Approved: {{room.amount}}</small>
+            {%endif%}
+            {%endif%}
+            </div>
+            <div class="roomListRoom__meta">
+              <a href="room.html" class="roomListRoom__joined">
+               
+                Updated {{room.updated|timesince}}
+              </a>
+              
+              <p class="roomListRoom__topic">{{room.name}}</p>
+            </div>
+            
+            {%endfor%}
+          
+          <style>
+          </style>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+          </div>
+          </main>
+          
+          
+        <!-- Room List End -->
+
+        <!-- Activities Start -->
+      
+        
+           
+              
+            
+      
+           
+           
+          </div>
+        </div>
+        <!-- Activities End -->
+      </div>
+    </main>
+    {% endblock %}
