@@ -17,8 +17,8 @@ SECRET_KEY = 'django-insecure-f_d6j(*!po2e2few@*tv@7gvl7(+%6bi-3sh(qw%=b093d52s8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =False
 
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://da9a5dd240e2.ngrok-free.app']
+ALLOWED_HOSTS = ['gciwelfare.herokuapp.com']
+
 
 
 # Application definition
@@ -135,3 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if 'DATABASE_URL' in os.environ:
  DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
